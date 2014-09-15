@@ -1,0 +1,30 @@
+.TE_textEditWrapper {font-size: 10pt; line-height:20px;}
+.TE_buttonCont {position:relative; left:0; top:0; width:100%; height:100%;}
+.TE_popOutMenuCont {position:absolute; right:0; bottom:0; width:0; height:0;}
+.TE_disabled {position:absolute; left:0; top:0; width:100%; height:100%; background-color:grey; opacity:0.6; z-index:1000;}
+
+.TE_button {float:left; width:20px; height:20px; background-color:red; margin-bottom:5px;}
+
+.TE_fontCont {float:left; background:yellow; width: 160px; height: 20px;}
+.TE_fontContAbsPosAnchor {position:relative; left:0; top:0; height:100%; width:100%;}
+.TE_currentFont {float:left; padding-left: 5px; width:90px; height:100%; background:cyan; overflow:hidden;}
+
+.TE_fontOptsButton {float:right; width:20px; height: 20px; background:grey;}
+.TE_fontOptsCont {position:absolute; width:100%; height:150px; left:0; top:20px; overflow:hidden;}
+.TE_fontOpts {position:absolute; left: 0; width:180px;}
+
+.TE_fontOpt {width:100%; height:20px; background:purple; padding-left:5px; border-bottom: 2px solid black;}
+.TE_fontOpt:hover {background:green;}
+
+.TE_textColorCont, .TE_textBgColorCont {float:left; height:20px; background-color:red;}
+.TE_getBgColor, .TE_getColor {float:left; width:10px; height:100%; background-color:yellow;}
+
+.TE_fontOptsScrollCont {position:absolute; right:0; top:0; height:100%; width:20px; background:cyan;}
+.TE_fontOptsScrollHandle {position:absolute; top:0; width:100%; height:20px; background:orange;}
+
+/* Link Button */
+.TE_addLinkPromptCont {position:absolute; right:0; top:0; width:180px; padding: 0 5px; height:105px; background-color:orange;}
+.TE_addLinkExit {position:absolute; top:0; right:0; width:20px; height:20px; background-color:blue;}
+.TE_addLinkPromptCont label {float:left; margin-right:5px; text-align:right; width:40px;}
+.TE_addLinkPromptCont input {float:left; width:125px; margin: 3px 0;}
+.TE_addLinkPromptCont button {float:right; width:125px;}

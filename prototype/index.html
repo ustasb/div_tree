@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>DivTree</title>
+		<link type="text/css" rel="stylesheet" href="plugins/jqueryUI/jquery-ui-1.8.17.custom.css" />
+		<link type="text/css" rel="stylesheet" href="plugins/farbtastic/farbtastic.css" />
+		<link type="text/css" rel="stylesheet" href="plugins/textEditor/css/textEdit.css" />
+		<link type="text/css" rel="stylesheet" href="css/divTree.css" />
+	</head>
+	<body>
+		<div id="DT_topMenuBar">
+			<div id="DT_logo"></div>
+			<div id="DT_toolbox"></div>
+			<div id="DT_textEditorCont">
+				<div id="DT_textEditorToggle">edit text</div>
+				<div id="DT_textEditor"></div>
+			</div>
+			<div id="DT_classEditorButton"></div>
+			<div id="DT_attrEditorButton"></div>
+			<div id="DT_outlinerButton"></div>
+		</div>
+		<div id="DT_toolBenchCont">
+			<div id="DT_guideLinesCont"></div>
+			<div id="DT_mouseStats"></div>
+			<div id="DT_rightSideBar">
+				<div class="DT_overflowGuard">
+					<div id="DT_rightBarScrollCont">
+						<div id="DT_cssClassEditorCont">
+							<div>
+								<div id="DT_newClassButton"></div>
+								<div id="DT_cssClassDDM"></div>
+								<p class="DT_clear"></p>
+							</div>
+							<div id="DT_selectedClassName">
+								<span>No class is selected.</span>
+								<input type="text" />
+							</div>
+							<div class="DT_editorSect">
+								<div class="DT_editorSectHead">
+									<div class="DT_editorSectStatusIcon"></div>
+									<span class="DT_editorSectTitle">Style</span>
+								</div>
+								<div class="DT_editorSectBody">
+									<div class="DT_getCssProperty">
+										<span>CSS Property: </span>
+										<input type="text" />
+									</div>
+									<div class="DT_cssPropertyCont"></div>
+								</div>
+							</div>
+						</div>
+						<div id="DT_focusToolEditor">
+							<div id="DT_focusToolID">
+								<span>No tool is selected.</span>
+								<input type="text" />
+							</div>
+							<div class="DT_editorSect">
+								<div class="DT_editorSectHead">
+									<div class="DT_editorSectStatusIcon"></div>
+									<span class="DT_editorSectTitle">Classes</span>
+								</div>
+								<div class="DT_editorSectBody">
+									<div class="DT_editorSectCenter">
+										<div id="DT_focusToolClasses"></div>
+									</div>
+								</div>
+							</div>
+							<div class="DT_editorSect">
+								<div class="DT_editorSectHead">
+									<div class="DT_editorSectStatusIcon"></div>
+									<span class="DT_editorSectTitle">Layout</span>
+								</div>
+								<div class="DT_editorSectBody">
+									<div class="DT_editorSectCenter">
+										<div id="DT_focusToolLayout">
+											Position: <br />
+											<input class="DT_radio" type="radio" name="layout" value="absolute" />Absolute <br />
+											<input class="DT_radio" type="radio" name="layout" value="static" />Static <br />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="DT_editorSect">
+								<div class="DT_editorSectHead">
+									<div class="DT_editorSectStatusIcon"></div>
+									<span class="DT_editorSectTitle">Style</span>
+								</div>
+								<div class="DT_editorSectBody">
+									<div class="DT_getCssProperty">
+										<span>CSS Property: </span>
+										<input type="text" />
+									</div>
+									<div class="DT_cssPropertyCont"></div>
+								</div>
+							</div>
+						</div>
+						<div id="DT_outlinerCont"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- External Plugins -->
+		<script src="plugins/jquery/jquery1_7_1_min.js"></script>
+		<script src="plugins/jqueryUI/jquery-ui-1.8.17.custom.min.js"></script>
+		<script src="plugins/farbtastic/farbtastic.js"></script>
+		<script src="plugins/rangy-1.2.2/rangy-core.js"></script>
+		<script src="plugins/rangy-1.2.2/rangy-selectionsaverestore.js"></script>
+		<!-- / External Plugins -->
+		
+		<!-- General Custom Scripts -->
+		<script src="js/utils.js"></script>
+		<script src="js/colorWheel.js"></script>
+		<script src="plugins/textEditor/js/textEdit.js"></script>
+		<script src="js/draggable.js"></script>
+		<script src="js/resizable.js"></script>
+		<script src="js/dragDropMenu.js"></script>
+		<script src="js/outliner.js"></script>
+		<!-- / General Custom Scripts -->
+	
+		<!-- Tools -->
+		<script src="js/tools/genericTool.js"></script>
+		<script src="js/tools/boxTool.js"></script>
+		<script src="js/tools/imgTool.js"></script>
+		<script src="js/tools/textTool.js"></script>
+		<!-- /Tools -->
+	
+		<script src="js/divTree.js"></script>
+		<script src="js/ui.js"></script>
+		<script src="js/toolBench.js"></script>
+		<script src="js/cssEditor.js"></script>
+		<script type="text/javascript">
+			DIVTREE.init();
+		</script>
+	</body>
+</html>

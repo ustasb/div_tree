@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>DivTree</title>
+		<link type="text/css" rel="stylesheet" href="plugins/jqueryUI/css/custom-theme/jquery-ui-1.8.18.custom.css?1.0" />
+		<link type="text/css" rel="stylesheet" href="css/divTree.css?1.0" />
+	</head>
+	<body>
+		<div id="DT_topBar">
+			<div id="DT_menuOpts">
+				<ul class="DT_dropMenu">
+					<li>File
+						<ul>
+							<li>
+								<span>New Page</span>
+							</li>
+							<li>
+								<span>Open Page</span>
+							</li>
+							<li class="DT_listDivider">
+								<span>Save</span>
+							</li>
+							<li>
+								<span>Save As</span>
+							</li>
+							<li>
+								<span>Export</span>
+							</li>
+						</ul>
+					</li>
+					<li>Edit
+						<ul>
+							<li>
+								<span>Undo</span>
+							</li>
+							<li>
+								<span>Redo</span>
+							</li>
+							<li class="DT_listDivider">
+								<span>Cut</span>
+							</li>
+							<li>
+								<span>Copy</span>
+							</li>
+							<li>
+								<span>Paste</span>
+								<div class="DT_openOptsMenu"></div>
+							</li>
+							<li>
+								<span>Select All</span>
+							</li>
+						</ul>
+					</li>
+					<li>View
+						<ul>
+							<li id="DT_outlinerButton">
+								<span>Outliner</span>
+							</li>
+							<li id="DT_attrEditorButton">
+								<span>Attribute Editor</span>
+							</li>
+							<li id="DT_classEditorButton">
+								<span>Class Editor</span>
+							</li>
+							<li class="DT_listDivider">
+								<div class="DT_checkbox"></div>
+								<span>Show Grid</span>
+								<div class="DT_openOptsMenu"></div>
+							</li>
+							<li>
+								<span>Grid Size</span>
+							</li>
+							<li>
+								<span>Snapping</span>
+								<div class="DT_openOptsMenu"></div>
+							</li>
+							<li>
+								<span>Preview</span>
+							</li>
+						</ul>
+					</li>
+					<li>Help
+						<ul>
+							<li>
+								<span>Documentation</span>
+							</li>
+							<li>
+								<span>Tutorials</span>
+							</li>
+							<li>
+								<span>About</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div id="DT_projectName">Demo Project</div>
+			</div>
+			<div id="DT_shortcuts"></div>
+		</div>
+		<div id="DT_bottomBar">
+			<div id="DT_viewportCont">
+				<div id="DT_viewport"></div>
+			</div>
+			<div id="DT_rightBar">
+				<div id="DT_leftResizeBar"></div>
+				<div id="DT_mstrMenuCont">
+					<div id="DT_menuName">
+						<span></span>
+						<div id="DT_closeRightBar"></div>
+					</div>
+					<div id="DT_menusCont">
+						
+						<div id="DT_outliner" class="DT_menuCont">
+							
+								<div class="DT_scrollCont">
+									<div class="DT_scrollingCont">
+										<div class="DT_scrollContentCont">
+											
+											<ul></ul>
+
+										</div>
+									</div>
+									<div class="DT_scrollHandleContY">
+										<div class="DT_scrollHandle"></div>
+									</div>
+									<div class="DT_scrollHandleContX">
+										<div class="DT_scrollHandle"></div>
+									</div>
+								</div>
+							
+						</div>
+						
+						<div id="DT_attrEditor" class="DT_menuCont">
+							<div class="DT_focusItemName">
+								<label for="DT_toolID">Tool: </label>
+								<input type="text" id="DT_toolID" spellcheck="false" />
+							</div>
+							
+							<div class="DT_accordionCont">
+								
+								<div class="DT_scrollCont">
+									<div class="DT_scrollingCont">
+										<div class="DT_scrollContentCont">
+										
+											<div class="DT_accordionItem">
+												<div class="DT_accordionItemHead">
+													<div class="DT_itemOpenStatus"></div>
+													<span>Classes</span>
+												</div>
+												<div class="DT_accordionItemBody">
+													<ul class="DT_toolClasses DT_sortableList">
+														<li>
+															<div class="DT_checkbox"></div>
+															<div class="DT_remove"></div>
+															<div class="DT_classItemName DT_sortableHandle">redStuff</div>
+														</li>
+														<li>
+															<div class="DT_checkbox"></div>
+															<div class="DT_remove"></div>
+															<div class="DT_classItemName DT_sortableHandle">blue</div>
+														</li>
+														<li>
+															<div class="DT_checkbox"></div>
+															<div class="DT_remove"></div>
+															<div class="DT_classItemName DT_sortableHandle">AceCombatFighter</div>
+														</li>
+														<li>
+															<div class="DT_checkbox"></div>
+															<div class="DT_remove"></div>
+															<div class="DT_classItemName DT_sortableHandle">killer</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="DT_accordionItem">
+												<div class="DT_accordionItemHead">
+													<div class="DT_itemOpenStatus"></div>
+													<span>Positioning</span>
+												</div>
+												<div class="DT_accordionItemBody">
+													<div class="DT_accordionSubMenu">Centering</div>
+													<div id="DT_centerToolHoriz" class="DT_layoutOption"></div>
+													<div id="DT_centerToolVert" class="DT_layoutOption"></div>
+													<div class="DT_accordionSubMenu">Positioning</div>
+													<div id="DT_positionAbsolute" class="DT_layoutOption"></div>
+													<div id="DT_positionStatic" class="DT_layoutOption"></div>
+												</div>
+											</div>
+											<div class="DT_accordionItem">
+												<div class="DT_accordionItemHead">
+													<div class="DT_itemOpenStatus"></div>
+													<span>Style</span>
+												</div>
+												<div class="DT_accordionItemBody">
+													<div class="DT_getCssProperty DT_accordionSubMenu">
+														<label for="DT_toolCssPropertyInput">CSS Property</label>
+														<input type="text" id="DT_toolCssPropertyInput" spellcheck="false" />
+													</div>
+													<ul class="DT_toolCssProperties DT_sortableList">
+														<li class="DT_colorProperty">
+															<div class="DT_cssPropertyName DT_sortableHandle">background-color</div>
+															<input type="text" />
+															<div class="DT_getColor"></div>
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">width</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">height</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">margin-left</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">border</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">z-index</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">margin-right</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+													</ul>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+									<div class="DT_scrollHandleContY">
+										<div class="DT_scrollHandle"></div>
+									</div>
+								</div>
+								
+								<div class="DT_notesCont">
+									<div class="DT_notesResizeHandle"></div>
+									<div class="DT_notesTitle">Notes: <span>somethingTool</span></div>
+									<textarea class="DT_borderBox"></textarea>
+								</div>
+							</div>
+							
+							
+						</div>
+						
+						<div id="DT_classEditor" class="DT_menuCont">
+							<div class="DT_focusItemName">
+								<label for="DT_className">Class: </label>
+								<input type="text" id="DT_className" spellcheck="false" />
+								<div id="DT_newClass"></div>
+								<div id="DT_destroyClass"></div>
+							</div>
+							<div id="DT_classBox">
+								<div id="DT_layoutType">
+									<div class="DT_classLayoutHoriz"></div>
+									<div class="DT_classLayoutClump"></div>
+								</div>
+								<div class="DT_scrollCont">
+									<div class="DT_scrollingCont">
+										<div class="DT_scrollContentCont"></div>
+									</div>
+									<div class="DT_scrollHandleContY">
+										<div class="DT_scrollHandle"></div>
+									</div>
+									<div class="DT_scrollHandleContX">
+										<div class="DT_scrollHandle"></div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="DT_accordionCont">
+								
+								<div class="DT_scrollCont">
+									<div class="DT_scrollingCont">
+										<div class="DT_scrollContentCont">
+											
+											<div class="DT_accordionItem">
+												<div class="DT_accordionItemHead">
+													<div class="DT_itemOpenStatus"></div>
+													<span>Style</span>
+												</div>
+												<div class="DT_accordionItemBody">
+													<div class="DT_getCssProperty DT_accordionSubMenu">
+														<label for="DT_classCssPropertyInput">CSS Property</label>
+														<input type="text" id="DT_classCssPropertyInput" spellcheck="false" />
+													</div>
+													<ul class="DT_toolCssProperties DT_sortableList">
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">background-color</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">width</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">height</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">margin-left</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">border</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">z-index</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+														<li>
+															<div class="DT_cssPropertyName DT_sortableHandle">margin-right</div>
+															<input type="text" />
+															<div class="DT_remove"></div>
+														</li>
+													</ul>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+									<div class="DT_scrollHandleContY">
+										<div class="DT_scrollHandle"></div>
+									</div>
+								</div>
+
+								<div class="DT_notesCont">
+									<div class="DT_notesResizeHandle"></div>
+									<div class="DT_notesTitle">Notes: <span>somethingClass</span></div>
+									<textarea class="DT_borderBox"></textarea>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+		<script src="plugins/jquery-mousewheel-3.0.6/jquery.mousewheel.min.js"></script>
+		<script src="js/utils.js?1.0"></script>
+		<script src="js/ui.js?1.0"></script>
+		<script>
+			$(".DT_sortableList").sortable({
+					handle: ".DT_sortableHandle"
+			});
+			UI.init();
+		</script>
+	</body>
+</html>

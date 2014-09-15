@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Brian's Text Editor</title>
+		<link href='css/textEdit.css' rel='stylesheet' type='text/css'>
+		<link href='../farbtastic/farbtastic.css' rel='stylesheet' type='text/css'>
+		<style type="text/css" rel="stylesheet">
+			
+			#key {position:absolute; left:10px; top:10px;}
+			#textSpace1 {width:400px; margin: 20px auto; background-color: red;}
+			#instructions {margin-top:40px; text-align:center; font-family:Arial;}
+			#textEditor {margin: 20px auto;}
+			
+			.TE_boldButton {background: red;}
+			.TE_italicButton {background: blue;}
+			.TE_underlineButton {background: pink;}
+			.TE_centerButton {background: yellow;}
+			.TE_justifyLeftButton {background: black; color:white;}
+			.TE_justifyRightButton {background: purple;}
+			.TE_orderedListButton {background: orange;}
+			.TE_unorderedListButton {background: teal;}
+			.TE_addLinkButton {background: magenta;}
+			.TE_removeLinkButton {background: grey;}
+			
+			/* Text Editor */
+			#DT_textEditorCont {float:left; width:500px; margin-left: 40px; height:100%; background-color:purple;}
+			#DT_textEditorToggle {float:left; width:50px; height:100%; background-color:pink;}
+			#DT_textEditor {float:left; background-color:green;}
+			/* Text Editor Close */
+			
+			.CW_container {position:absolute; padding:10px; width:196px; height:230px; background-color:cyan;}
+			.CW_cancel {position:absolute; right:0; top:0; width:20px; height:20px; background-color:grey;}
+			.CW_controls {margin: 10px auto 0 auto; width:170px;}
+			.CW_colorInput {float:left; width:100px;}
+			.CW_done {float:left;margin-left: 10px; width:50px;}
+		</style>
+	</head>
+	<body unselectable="on">
+		<div id="key">
+			<span class="TE_boldButton">bold</span><br />
+			<span class="TE_italicButton">italic</span><br />
+			<span class="TE_underlineButton">underline</span><br />
+			<span class="TE_centerButton">center</span><br />
+			<span class="TE_justifyLeftButton">justify left</span><br />
+			<span class="TE_justifyRightButton">justify right</span><br />
+			<span class="TE_orderedListButton">ordered list</span><br />
+			<span class="TE_unorderedListButton">unordered list</span><br />
+			<span class="TE_addLinkButton">add link</span><br />
+			<span class="TE_removeLinkButton">remove link</span>
+		</div>
+		<div id="instructions">
+			Highlight the text you wish to edit then click a square button below.<br />
+			(I haven’t gotten around to the UI yet.)
+		</div>
+		<div id="textEditor"></div>
+		<div id="textSpace1" class="TE_textSpace">"Sed ut perspiciatis unde omnis iste natus <b>error sit voluptatem accusantium doloremque laudantium, </b>totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+		<script src="../farbtastic/farbtastic.js"></script>
+		<script>
+			var Utils = (function ($) {
+				
+				return {
+					disableDocSelection: function () {
+						
+						$(document.body).addClass("unselectable").disableSelection();
+						$("input").css('webkit-user-select', 'none');
+						
+					},
+					enableDocSelection: function () {
+						
+						$(document.body).removeClass("unselectable").enableSelection();
+						$("input").css('webkit-user-select', '');
+						
+					},
+					// Re-appends elements while maintaining the absolute position of the child element
+					appendElements: function (childEl, parentEl, mouseAbsX, mouseAbsY) {
+						var $child = $(childEl),
+							$parent = $(parentEl),
+							borderOffsetX = parseInt($parent.css("border-left-width"), 10) || 0,
+							borderOffsetY = parseInt($parent.css("border-top-width"), 10) || 0,
+							childAbsPos,
+							parentAbsPos = $parent.offset();
+
+						// If given, the element has not yet been appended to the page
+						if (mouseAbsX && mouseAbsY) {
+							childAbsPos = {left: mouseAbsX, top: mouseAbsY};
+						} else {
+							childAbsPos = $child.offset();
+						}
+						
+						childAbsPos.left -= parentAbsPos.left + borderOffsetX;
+						childAbsPos.top -= parentAbsPos.top + borderOffsetY;
+						
+						childEl.style.left = childAbsPos.left + "px";
+						childEl.style.top = childAbsPos.top + "px";
+						
+						parentEl.appendChild(childEl);
+					}
+				};
+
+			}(jQuery));
+		</script>
+		
+		<script src="js/colorWheel.js"></script>
+		<script src="../rangy-1.2.2/rangy-core.js"></script>
+		<script src="../rangy-1.2.2/rangy-selectionsaverestore.js"></script>
+		<script src="js/textEdit.js"></script>
+		
+		
+		<script type="text/javascript">
+
+			new TextEditor({
+				container: document.getElementById("textEditor"),
+				textSpace: document.getElementById("textSpace1")
+			});
+			
+		</script>
+	</body>
+</html>

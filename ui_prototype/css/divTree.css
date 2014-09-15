@@ -1,0 +1,171 @@
+/*	
+	white: ffffff
+	grey white: dedede
+	lighter grey: 616161
+	light grey: 4e4e4e
+	
+	neutral grey: 444444
+	
+	dark grey: 323232
+	darker grey: 252525
+	
+	
+	light blue: 6d93b4 (original was 82afd6) or rgba(109, 147, 180)
+*/
+
+/* z-indices
+	
+	0: .DT_outlinerItemChildren
+	1: .DT_outlinerItemHead
+	
+	8000: .DT_scrollHandleContY
+	9000: .DT_dropMenu
+
+*/
+
+/* Reset */
+	html, body, div, span, input, textarea, ul, ol, li a {margin:0; padding:0; outline:none; border:none; cursor:default;}
+	body {min-width:850px; overflow:hidden;}
+	body, label, input, textarea {font-family: Verdana, Arial, Helvetica, sans-serif; font-size:9pt; line-height:18px; color:#dedede;}
+	
+	ul {list-style-type:none;}
+	input, textarea {height: 18px; width:150px; padding: 0 2px; cursor: auto; background-color:#252525; border:1px solid #616161; -moz-border-radius: 3px; border-radius: 3px;}
+	input:focus, textarea:focus {border-color: #6d93b4;}
+	textarea {display:block; padding:2px 4px; resize:none; overflow:auto;}
+	
+	/* Allows width to be 100% not overflow despite having padding, border or margin */
+	.DT_borderBox {box-sizing: border-box; -webkit-box-sizing:border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;}
+	
+	.DT_checkbox, .DT_remove, .DT_getColor, #DT_closeRightBar {width:14px; height:14px;}
+	.DT_checkbox {background-color:orange;}
+	.DT_remove {background-color:blue;}
+	.DT_getColor {background-color:green;}
+	
+	/* jQuery UI Autocomplete Override */
+	#DT_menusCont .ui-autocomplete {max-height:360px; padding:0; overflow:hidden; -moz-box-shadow: 3px 3px 6px #252525; -webkit-box-shadow: 3px 3px 6px #252525; box-shadow: 3px 3px 6px #252525;}
+	#DT_menusCont .ui-autocomplete li {height:18px; padding-bottom:2px;}
+	#DT_menusCont .ui-autocomplete li a {padding:0 5px;}
+
+/* Top Bar */
+	#DT_topBar {width:100%; height:60px; background-color:#444444; border-bottom:1px solid #252525;}
+	#DT_menuOpts {position:relative; width:100%; height:18px; border-bottom:1px solid #252525; text-align:center;}
+	#DT_projectName {position:absolute; left:0; top:0; width:100%; height:100%; text-align:center;}
+	#DT_shortcuts {width:100%; height:41px;}
+
+	.DT_dropMenu {position:relative; z-index:9000;}
+	.DT_dropMenu > li {float:left; width:35px; margin:0 3px; height:18px; text-align:center;}
+	.DT_dropMenu > li:hover {background-color:#616161;}
+	.DT_dropMenu li ul {display:none; width:169px; text-align:left; border:1px solid #252525; background-color:#444444; -moz-box-shadow: 1px 1px 3px #252525; -webkit-box-shadow: 1px 1px 3px #252525; box-shadow: 1px 1px 3px #252525;}
+	.DT_dropMenu li ul li {width:150px; height:18px; padding:0 0 2px 19px;}
+	.DT_dropMenu li ul li.DT_listDivider {border-top:1px solid #323232;}
+	.DT_dropMenu .DT_checkbox {float:left; margin-left:-16px; margin-top:3px;}
+	.DT_dropMenu .DT_openOptsMenu {float:right; width:20px; height:20px; background-color:#323232;}
+	.DT_dropMenu .DT_openOptsMenu:hover {background-color:#6d93b4;}
+	.DT_dropMenu li ul li:hover, #DT_outliner .DT_selected {background-color:#6d93b4; color:#ffffff;}
+
+/* Bottom Bar
+- #DT_bottomBar height is updated dynamically
+- #DT_viewportCont width is updated dynamically
+*/
+	#DT_bottomBar {position:relative; left:0; top:0; width:100%; background-color:#444444;}
+	#DT_viewportCont {position:absolute; left:0; top:0; width:100%; height:100%; background-color:#d6d6d6;}
+	#DT_viewport {position:relative; left:0; top:0; width: 100%; height:100%; overflow:auto;}
+	
+	/* Right Bar */
+		#DT_rightBar {display:none; position:absolute; top:0; right:0; width:300px; height:100%; border-left:1px solid #252525;}
+		#DT_leftResizeBar {float:left; width:8px; height:100%; cursor:w-resize;}
+		/*
+		#DT_mstrMenuCont: This could be position:relative with left:8px, however IE7 doesn't render relative positioning correctly.
+		For this reason, we need to put the relative container inside.
+		*/
+		#DT_mstrMenuCont {margin-left:8px; width:287px; height:100%;}
+		#DT_menuName {width:100%; height:18px; text-align:center; border-bottom: 1px solid #323232; margin-bottom:5px;}
+		#DT_closeRightBar {float:right; margin-top:2px; background-color:green;}
+		#DT_menusCont {width:100%;}
+		.DT_menuCont {display:none; width:100%; height:100%;}
+	
+		/* Scrolling */
+			.DT_scrollCont {position:relative; left:0; top:0; overflow:hidden; border: 1px solid #252525; min-height:80px;}
+			.DT_scrollingCont {position:absolute; left:0; top:0; width:285px;}
+			.DT_scrollContentCont {width:100%;}
+			
+			.DT_scrollHandleContY, .DT_scrollHandleContX {position:absolute; background-color:#616161; z-index:8000;}
+			.DT_scrollHandleContY {right:0; top:0; width:14px; height:100%;}
+			.DT_scrollHandleContX {left:0; bottom:0; height:14px; width:100%;}
+			
+			.DT_scrollHandle {position:absolute; left:1px; top:0; width:12px; background-color: #252525;}
+			.DT_scrollHandleContX .DT_scrollHandle {left:0; top:1px; height:12px; width:40px;}
+
+		/* Attribute/ Class Editor */
+			.DT_focusItemName {width:100%; height:20px; margin-bottom:5px;}
+			.DT_focusItemName label, .DT_focusItemName input {float:left; margin-left:5px;}
+			.DT_notesTitle {margin-left:5px;}
+			
+			.DT_accordionSubMenu:first-child {margin-top:-5px;}
+			.DT_accordionSubMenu {width:100%; height:18px; margin:5px 0; font-size:8px; background-color:#444444; border-bottom:1px solid #252525;  padding-left:5px;}
+			.DT_getCssProperty {height:20px; padding-top:4px; padding-bottom:4px;}
+
+			.DT_accordionItem {width:100%;}
+			.DT_accordionItemHead {width:100%; height:18px; background-color: #4e4e4e; border-left: 1px solid #616161; border-top: 1px solid #616161; border-bottom: 1px solid #252525;}
+			.DT_accordionItemBody {display:none; width:100%; background-color: #323232; padding:5px 0; border-top: 1px solid #252525; border-left: 1px solid #616161; border-bottom: 1px solid #252525; overflow:hidden;}
+			.DT_accordionItemBody li {position:relative; left:0; top:0; margin:auto; height:18px;}
+			
+			.DT_itemOpenStatus {float:left; margin: 0 10px; width:15px; height:18px; background-color:green;}
+
+			.DT_notesCont {width:100%;}
+			.DT_notesResizeHandle {width:100%; height:8px; cursor:n-resize}
+			.DT_notesTitle {width:100%; height:18px;}
+			.DT_notesCont textarea {width:100%; height:100px;}
+		
+		/* Outliner */
+			#DT_outliner {background-color: #323232;}
+			#DT_outliner .DT_scrollContentCont {float:left; width:auto;}
+			#DT_outliner .DT_selected {border-color: #6d93b4;}
+
+			.DT_toggleOutlinerItem {float:left; margin:3px 4px 0 4px; width:9px; height:9px; border:1px solid #dedede; text-align:center; line-height:4pt;}
+			.DT_selected .DT_toggleOutlinerItem {border-color:#dedede;}
+			.DT_userIsDragging .DT_outlinerBefore {display:block;}
+			.DT_outlinerBefore {display:none; position:absolute; left:0; top:-5px; width:100%; height:8px;}
+			.DT_itemConnectLine {position:absolute; left:-16px; top:-4992px; width:15px; height:5000px; border-left: 1px solid #dedede; border-bottom: 1px solid #dedede;}
+			.DT_outlinerItemHead {position:relative; left:0; top:0; width:5000px; height:17px; border:1px solid #323232; border-left-width:0; border-right-width:0;}
+			.DT_outlinerItemChildren {padding-left:25px; overflow:hidden;}
+		
+		/* Attribute Editor */
+			.DT_toolClasses li {width:90px;}
+			.DT_toolClasses .DT_checkbox, .DT_toolClasses .DT_remove {float:left; margin-top:2px;}
+			.DT_toolClasses .DT_remove {margin-left:4px; margin-right:4px;}
+			.DT_classItemName {position:absolute; left:38px; top:0;}
+			
+			.DT_layoutOption {margin:auto; margin-top: 5px; width:120px; height:40px; background:#252525; border:1px solid red;}
+			
+			.DT_toolCssProperties li {height:22px; width:260px;}
+			.DT_toolCssProperties .DT_cssPropertyName {position:absolute; right:145px; top:1px; width:300px; padding-right:5px; text-align:right;}
+			.DT_toolCssProperties input {position:absolute; left:115px; top:1px; width:120px; height:18px;}
+			.DT_toolCssProperties .DT_remove {position:absolute; left:245px; top:4px;}
+			.DT_toolCssProperties .DT_colorProperty input {width:100px;}
+			.DT_toolCssProperties .DT_colorProperty .DT_getColor {position:absolute; left:226px; top:4px;}
+		
+		/* Class Editor */
+			#DT_classBox {position:relative; height:100px; margin-bottom:5px; overflow:hidden; background-color: #323232; border:1px solid #252525; -moz-box-shadow: inset 0 0 3px #252525; -webkit-box-shadow: inset 0 0 3px #252525; box-shadow: inner 0 0 3px #252525;}
+			#DT_classBox .DT_scrollCont {height:100%; border:none; z-index:1;}
+			#DT_newClass, #DT_destroyClass {float:left; width:16px; height:16px; margin:2px 0 0 5px; background-color:orange;}
+			#DT_layoutType {position:absolute; top:0; right:0; width:36px; height:18px; z-index:2;}
+			#DT_layoutType div {display:none; float:right; width:14px; height:14px; margin:2px; background-color:cyan;}
+			
+			.DT_selected.DT_classBoxItem {outline:2px dotted #6d93b4;}
+			.DT_selected .DT_classBoxItemName {background-color:rgb(109, 147, 180); color:#ffffff;}
+			.DT_classBoxItem {position:absolute; -moz-box-shadow: 2px 2px 3px #252525; -webkit-box-shadow: 2px 2px 3px #252525; box-shadow: 2px 2px 3px #252525;}
+			.DT_classBoxPreview {width:100%; height:100%; background-color:#444444;}
+			.DT_classBoxItemName {position:absolute; left:0; bottom:0; width:100%; height:14px; padding-left:2px; font-size:9px; line-height:14px; background-color:rgba(50, 50, 50, .7); overflow:hidden;}
+			
+			
+			
+			
+
+			
+			
+		
+		
+		
+		
+		
